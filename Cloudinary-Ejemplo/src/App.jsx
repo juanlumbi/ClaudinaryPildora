@@ -60,13 +60,19 @@ function FileUploader() {
           {uploadedMedia.map((url, index) => (
             <div key={index}>
               {url.startsWith("https://res.cloudinary.com/da7ffijqs/image/") ? (
-                <Image publicId={url} width="300">
-                  <Transformation crop="fill" />
-                </Image>
+                <div>
+                  <Image publicId={url} width="300">
+                    <Transformation crop="fill" />
+                  </Image>
+                  <p>URL de la imagen: {url}</p>
+                </div>
               ) : url.startsWith("https://res.cloudinary.com/da7ffijqs/video/") ? (
-                <Video publicId={url} width="400" controls>
-                  <Transformation />
-                </Video>
+                <div>
+                  <Video publicId={url} width="400" controls>
+                    <Transformation />
+                  </Video>
+                  <p>URL del video: {url}</p>
+                </div>
               ) : (
                 <p>URL no válida: {url}</p>
               )}
@@ -78,7 +84,7 @@ function FileUploader() {
   );
 }
 
-function App() {
+export default function App() {
   return (
     <CloudinaryContext cloudName="da7ffijqs">
       <div>
@@ -106,5 +112,4 @@ function App() {
   );
 }
 
-export default App;
 
