@@ -14,9 +14,9 @@ function FileUploader() {
         // Crear una instancia de FormData para subir el archivo multimedia
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("upload_preset", "api_Cloudinary");
+        formData.append("upload_preset", "api_Cloudinary"); //En donde pone api_Cloudinary teneis que poner vuestro propio upload_preset 
 
-        // Realizar la solicitud de subida a Cloudinary
+        // Realizar la solicitud de subida a Cloudinary y donde pone da7ffijqs teneis que poner vuestro cloud_name
         fetch("https://api.cloudinary.com/v1_1/da7ffijqs/auto/upload", {
           method: "POST",
           body: formData,
